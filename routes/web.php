@@ -13,6 +13,6 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/prayer-times', 'PrayerTimes@show')->name('prayer-times');

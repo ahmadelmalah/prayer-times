@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label for="method">Fiqh School</label>
                                 <select class="custom-select mr-sm-2" id="method" name="method">
-                                    <option selected>Choose...</option>
+                                    <option value="2" selected>Choose...</option>
                                     <option value="1">University of Islamic Sciences, Karachi</option>
                                     <option value="2">Islamic Society of North America</option>
                                     <option value="3">Muslim World League</option>

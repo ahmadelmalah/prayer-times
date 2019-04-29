@@ -23,8 +23,17 @@ class PrayerTimes extends Controller
         $method = $request->input('method', 2) ?? 2;
         
         $client = new Client();
-        $response = $client->request('GET', "http://api.aladhan.com/v1/calendarByCity?city={$city}&country={$country}&method={$method}&month={$month}&year={$year}");
+        try {
+            $response = $client->request('GET', "http://api.aladhan.com/v1/calendarByCity?city={$city}&country={$country}&method={$method}&month={$month}&year={$year}");
+        } catch (\Exception $e) {
+            return redirect()->route('home');
+        }
         $res = json_decode($response->getBody(), true);
-        return dd($res['data'][$day-1]['timings']);
+
+        return view('prayer-time', [
+            'times' => $res['data'][$day-1]['timings'],
+            'country' => $country,
+            'city' => $city
+        ]);
     }
 }
