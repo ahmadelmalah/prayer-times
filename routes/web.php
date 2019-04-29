@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/prayer-times', 'PrayerTimes@show');
+Route::get('/prayer-times', 'PrayerTimes@show')->name('prayer-times');

@@ -18,9 +18,9 @@ class PrayerTimes extends Controller
         $month = date("m");
         $day = date('d');
 
-        $city = $request->input('city', 'Espoo');
-        $country = $request->input('country', 'Finland');
-        $method = $request->input('method', 2);
+        $city = $request->input('city', 'Espoo') ?? 'Espoo';
+        $country = $request->input('country', 'Finland') ?? 'Finland';
+        $method = $request->input('method', 2) ?? 2;
         
         $client = new Client();
         $response = $client->request('GET', "http://api.aladhan.com/v1/calendarByCity?city={$city}&country={$country}&method={$method}&month={$month}&year={$year}");
